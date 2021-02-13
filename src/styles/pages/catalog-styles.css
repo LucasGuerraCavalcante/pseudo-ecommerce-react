@@ -41,11 +41,11 @@
 }
 
 #products-catalog .shopping-cart {
-    position: top;
+    position: absolute;
     right: 40px;
     bottom: 40px;
 
-    margin: 2rem;
+    /* margin: 2rem; */
 
     width: 64px;
     height: 64px;
@@ -62,5 +62,19 @@
 }
 
 #products-catalog .shopping-cart:hover {
-    background: #2950d1;
+    background: #88abc7;
+}
+
+#products-wrapper {
+    width: 100%;
+    overflow-y: scroll;
+
+    margin-top: 1rem;
+
+    display: grid;
+
+    grid-auto-rows: 440px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    
+    grid-gap: 0;
 }
