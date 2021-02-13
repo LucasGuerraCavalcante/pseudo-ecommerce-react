@@ -44,7 +44,7 @@
     color: #f1fcff;
 }
 
-.content-wrapper .location {
+.content-wrapper .bem-vindo {
     position: absolute;
     right: 0;
     top: 0;
@@ -58,11 +58,11 @@
     text-align: right;
 }
 
-.content-wrapper .location strong {
+.content-wrapper .bem-vindo strong {
     font-weight: 800;
 }
 
-.content-wrapper .location span {
+.content-wrapper .bem-vindo span {
     font-size: 20px;
     color: #f1fcff;
 }

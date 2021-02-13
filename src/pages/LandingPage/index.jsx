@@ -18,8 +18,8 @@ function LandingPage() {
                     <p>Os melhores preços estão aqui!</p>
                 </main>
         
-                <div className="location">
-                    <strong>Seja bem vindo</strong>
+                <div className="bem-vindo">
+                    <strong>Seja Bem Vindo(a)</strong>
                     <span>Confira nossos produtos</span>
                 </div>
             
