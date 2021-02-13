@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { BiCart } from 'react-icons/bi';
 
 import '../../styles/components/product.css';
 
-import imageTest from '../../assets/mortal-kombat-xl.png';
+// import imageTest from '../../assets/mortal-kombat-xl.png';
 
 interface Product {
     id: number;
@@ -20,9 +21,10 @@ function Product({id, name, price, score, image}:Product) {
             <strong id="product-name">{name}</strong>
             <p id="product-prize">{price} R$</p>
             <div id="cart-opts">
-                <p>+</p>
-                <p>0</p>
-                <p>-</p>
+                <a id="cart-button">
+                    <span id="add-span">+</span>
+                    Adicionar ao carrinho
+                </a>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@
     height: 420px;
     width: 320px;
 
-    color: #000;
+    color: #3d3d3d;
 
     border-radius: 0.3rem;
     box-shadow: 5px 5px 5px #b9b9b9;
@@ -21,8 +21,7 @@
 }
 
 .product:hover {
-    cursor: pointer;
-    box-shadow: 6px 6px 6px #88abc7;
+    box-shadow: 8px 8px 8px #88abc7;
 }
 
 #product-name {
@@ -33,4 +32,43 @@
 #cart-opts {
     margin: 1rem;
     display: flex;
+}
+
+#cart-button {
+    color: #FFF;
+    /* border: 1px solid rgb(141, 141, 141); */
+    background-color: #FFD666;
+
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+
+    outline: none;
+
+    text-decoration: none;
+
+    display: inline-block;
+    cursor: pointer;
+
+    display: flex;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.5s;
+}
+
+#cart-button:hover,
+#cart-button:focus {
+    opacity: .5;
+}
+
+#add-span {
+    font-size: 25px;
+    padding-right: 0.3rem;
 }
