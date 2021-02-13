@@ -7,7 +7,7 @@
 }
 
 #products-catalog aside {
-    width: 440px;
+    width: 530px;
     padding: 0 50px 2rem 50px;
 
     display: flex;
@@ -22,6 +22,8 @@
     font-weight: 800;
     line-height: 42px;
     margin-top: 30px;
+
+    margin-bottom: 1rem;
 }
 
 #products-catalog aside p {
@@ -92,12 +94,54 @@
     grid-gap: 0;
 }
 
+#checkout-flex-structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    height: 100%;
+}
+
+#checkout-top {
+    display: flex;
+    justify-content: space-between;
+
+
+    background-color: rgba(12, 12, 12, 0.363);
+
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+
+    margin: 1rem 0 0 0;
+    /* padding: 10px 20px; */
+}
+
+#checkout-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #2950d1; */
+    cursor: pointer;
+
+    padding: 0 0.8rem;
+
+    width: 6rem;
+    height: 100%;
+
+    transition: background-color 0.5s;
+}
+
+#checkout-button:hover,
+#checkout-button:focus {
+    background-color: rgba(12, 12, 12, 0.205);;
+}
+
 #checkout-container {
     height: 100%;
 
-    margin: 1rem 0 1rem;
+    margin: 0 0 1rem;
 
-    border-radius: 0.3rem;
+    border-radius: 0 0 0.3rem 0.3rem;
     background-color: rgba(12, 12, 12, 0.2);
 
     display: flex;
@@ -107,27 +151,28 @@
 
 #cart-wrapper {
     height: 100%;
-    padding-left: 0.5rem;
+    /* padding-left: 0.5rem; */
 
     display: flex;
     flex-direction: column;
-
 }
 
 #cart-wrapper p {
-    padding-top: 0;
+    padding-top: 0.5rem;
 }
 
 #cart-wrapper ul {
     list-style-type: none;
+
+    /* overflow: scroll; */
 }
 
 #cart-wrapper li:first-child {
-    padding-top: 0.5rem;
+    padding-top: 0.2rem;
 }
 
 #cart-wrapper li {
-    padding-left: 1rem;
+    padding-left: 2rem;
     padding-bottom: 0.5rem;
 
     font-size: 13px;
@@ -144,8 +189,12 @@
     justify-content: space-between;
 }
 
-#data-wrapper p, h3 {
+#data-wrapper h3 {
     padding: 0.5rem;
+}
+
+.cart-text {
+    padding: 0.5rem 1rem 0.5rem;
 }
 
 #data-wrapper a {
@@ -154,7 +203,7 @@
     background-color: rgba(12, 12, 12, 0.2);
 
     box-sizing: border-box;
-    border-radius: 0 0 5px;
+    border-radius: 0 0 5px 5px;
     padding: 10px 20px;
 
     font-style: normal;

@@ -2,7 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    /* scrollbar-width: 5px;
+    scrollbar-color: blue transparent; */
 }
+
+/* *::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 2px solid transparent;
+} */
 
 body {
     color: #FFF;

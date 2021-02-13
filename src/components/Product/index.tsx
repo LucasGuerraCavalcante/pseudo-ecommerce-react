@@ -22,7 +22,9 @@ function Product({id, name, price, score, image}:Product) {
             <p id="product-prize">{price} R$</p>
             <div id="cart-opts">
                 <a id="cart-button">
-                    <span id="add-span">+</span>
+                    <span id="add-span">
+                        <img src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`}></img>
+                    </span>
                     Adicionar ao carrinho
                 </a>
             </div>
