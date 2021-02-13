@@ -9,6 +9,7 @@ import '../../styles/pages/catalog-styles.css';
 import Product from '../../components/Product';
 
 import data from '../../data/products.json';
+import { url } from 'inspector';
 
 function ProductsCatalog() {
 
@@ -16,6 +17,8 @@ function ProductsCatalog() {
 
     const [showSortType, setShowSortType] = useState<boolean>(true);
     const [sortTypeHover, setSortTypeHover] = useState<string>('');
+
+    const [showCheckoutArea, setShowCheckoutArea] = useState<boolean>(false);
 
     const changeDefintiveSortType = function(sortTypeName: string) {
         setSortType(sortTypeName)
@@ -30,6 +33,10 @@ function ProductsCatalog() {
         setShowSortType(true)
     }
 
+    const showCheckoutAreaFunction = function() {
+        setShowCheckoutArea(!showCheckoutArea)
+    }
+
     return (
         <div id="products-catalog">
             <aside>
@@ -38,30 +45,48 @@ function ProductsCatalog() {
                     <p>E adicione os produtos ao seu carrinho</p>
                 </header>
 
-                <div id="checkout-container">
-                    <h3>Checkout</h3>
-                    
-                    <div id="cart-wrapper">
-                        <p>Carrinho: </p>
-                        <ul>
-                            <li>
-                                Produto 1
-                            </li>
-                            <li>
-                                Produto 2
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="data-wrapper">
+                <div id="checkout-flex-structure">
+                    <div id="checkout-top">
+                        <h3 className="cart-text">Checkout</h3>
                         <div>
-                            <p>Subtotal: R$</p>
-                            <p>Frete: R$</p>
+                            <a id="checkout-button" onClick={() => showCheckoutAreaFunction()} >
+                                <img src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} />
+                                <img src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} />
+                            </a>
                         </div>
-                        <p>Total: R$</p>
-                        <a>Comprar</a>
                     </div>
-
+                        {
+                            showCheckoutArea       
+                            ? (
+                                <>
+                                <div id="checkout-container">
+                                    <div id="cart-wrapper">
+                                        <p className="cart-text">Carrinho: </p>
+                                        <ul>
+                                            <li>
+                                                Produto 1
+                                            </li>
+                                            <li>
+                                                Produto 2
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="data-wrapper">
+                                        <div className="cart-text">
+                                            <p>Subtotal: R$</p>
+                                            <p>Frete: R$</p>
+                                        </div>
+                                        <p className="cart-text">Total: R$</p>
+                                        <a>Comprar</a>
+                                    </div>
+                                </div>
+                                </>
+                            )
+                            : (
+                                <>
+                                </>
+                            )
+                        }
                 </div>
 
                 <footer>
