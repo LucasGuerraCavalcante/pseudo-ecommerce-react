@@ -4,13 +4,11 @@ import { BiCart } from 'react-icons/bi';
 
 import '../../styles/pages/catalog-styles.css';
 
-// interface Product {
-//     id: number;
-// }
+import Product from '../../components/Product';
+
+import data from '../../data/products.json';
 
 function ProductsCatalog() {
-
-    // const [products, setproducts] = useState<Product>[]>([]);
 
     return (
         <div id="products-catalog">
@@ -23,12 +21,26 @@ function ProductsCatalog() {
                 <footer>
                     <strong>Seja Bem Vindo(a)</strong>
                     <span>Confira nossos produtos</span>
-                </footer>
+                </footer> 
             </aside>
 
+            <div id="products-wrapper">
+                {
+                    data.map((product) => {
+                        return (
+                            <Product 
+                                id={product.id}
+                                name={product.name}
+                                price={product.price}
+                                score={product.score}
+                                image={product.image}
+                            />
+                        );
+                    })
+                }
+            </div>
           
-
-            <Link to="/create" className="shopping-cart">
+            <Link to="/shop" className="shopping-cart">
                 <BiCart size={32} color="#FFF" />
             </Link>
         </div>
