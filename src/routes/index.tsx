@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import LandingPage from '../pages/LandingPage';
 import ProductsCatalog from '../pages/ProductsCatalog';
-import ShoppingCart from '../pages/ShoppingCart';
 
 function Routes() {
     return (
@@ -11,7 +10,6 @@ function Routes() {
             <Switch>
                 <Route exact path="/" component={LandingPage} /> 
                 <Route path="/app" component={ProductsCatalog} />    
-                <Route path="/shop" component={ShoppingCart} />   
             </Switch>
         </BrowserRouter>
     );
