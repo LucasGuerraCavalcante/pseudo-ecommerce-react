@@ -6,10 +6,17 @@ import { FaHotjar } from 'react-icons/fa';
 
 import '../../styles/pages/catalog-styles.css';
 
-import Product from '../../components/Product';
+import ProductCard from '../../components/ProductCard';
 
 import data from '../../data/products.json';
-import { url } from 'inspector';
+
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    score: number;
+    image: string;
+}
 
 function ProductsCatalog() {
 
@@ -19,6 +26,11 @@ function ProductsCatalog() {
     const [sortTypeHover, setSortTypeHover] = useState<string>('');
 
     const [showCheckoutArea, setShowCheckoutArea] = useState<boolean>(false);
+
+    const [shoppingCart, setShoppingCart] = useState<Array<Product>>([]);
+
+    const [frete, setFrete] = useState<number>(0);
+    const [subtotal, setSubtotal] = useState<number>(0);
 
     const changeDefintiveSortType = function(sortTypeName: string) {
         setSortType(sortTypeName)
@@ -63,20 +75,47 @@ function ProductsCatalog() {
                                     <div id="cart-wrapper">
                                         <p className="cart-text">Carrinho: </p>
                                         <ul>
-                                            <li>
-                                                Produto 1
-                                            </li>
-                                            <li>
-                                                Produto 2
-                                            </li>
+                                            {
+                                                shoppingCart.map((product) => {
+                                                    return (
+                                                        <li>
+                                                            <div id="product-li">
+                                                                <span>
+                                                                    {product.name}
+                                                                </span>
+                                                                <span>
+                                                                    {product.price} R$
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
                                         </ul>
                                     </div>
                                     <div id="data-wrapper">
                                         <div className="cart-text">
-                                            <p>Subtotal: R$</p>
-                                            <p>Frete: R$</p>
+                                            <div className="value-wrapper">
+                                                <span>Frete: </span>
+                                                {
+                                                    subtotal > 250
+                                                        ? ( <p>Grátis!!!</p> ) 
+                                                        : ( <p>{frete.toFixed(2)} R$</p> )
+                                                }                                            
+                                            </div>
+                                            <div className="value-wrapper" id="value-wrapper-subtotal">
+                                                <span>Subtotal:</span>
+                                                <p>{subtotal.toFixed(2)} R$</p>
+                                            </div>
                                         </div>
-                                        <p className="cart-text">Total: R$</p>
+                                        <div id="value-wrapper-total">
+                                            <span>Total: </span>
+                                            {
+                                                subtotal > 250
+                                                    ? ( <p className="cart-text">{subtotal.toFixed(2)} R$</p> ) 
+                                                    : ( <p className="cart-text">{(subtotal + frete).toFixed(2)} R$</p> )
+                                            }
+                                        </div>
                                         <a>Comprar</a>
                                     </div>
                                 </div>
@@ -130,12 +169,22 @@ function ProductsCatalog() {
                     {
                         data.map((product) => {
                             return (
-                                <Product 
+                                <ProductCard 
                                     id={product.id}
                                     name={product.name}
                                     price={product.price}
                                     score={product.score}
                                     image={product.image}
+
+                                    shoppingCart={shoppingCart}
+                                    setShoppingCart={setShoppingCart}
+
+                                    frete={frete}
+                                    subtotal={subtotal}
+                                    setFrete={setFrete}
+                                    setSubtotal={setSubtotal}
+
+                                    // addProductToTheShoppingCart={addProductToTheShoppingCart}
                                 />
                             );
                         })
