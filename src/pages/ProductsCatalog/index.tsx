@@ -38,9 +38,34 @@ function ProductsCatalog() {
                     <p>E adicione os produtos ao seu carrinho</p>
                 </header>
 
+                <div id="checkout-container">
+                    <h3>Checkout</h3>
+                    
+                    <div id="cart-wrapper">
+                        <p>Carrinho: </p>
+                        <ul>
+                            <li>
+                                Produto 1
+                            </li>
+                            <li>
+                                Produto 2
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="data-wrapper">
+                        <div>
+                            <p>Subtotal: R$</p>
+                            <p>Frete: R$</p>
+                        </div>
+                        <p>Total: R$</p>
+                        <a>Comprar</a>
+                    </div>
+
+                </div>
+
                 <footer>
-                    <strong>Seja Bem Vindo(a)</strong>
-                    <span>Confira nossos produtos</span>
+                    <span>Agradeçemos sua visita</span>
                 </footer> 
             </aside>
 
