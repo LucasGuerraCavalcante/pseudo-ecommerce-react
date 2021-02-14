@@ -3,11 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 
-    /* scrollbar-width: 5px;
-    scrollbar-color: blue transparent; */
+    scrollbar-width: 5px;
+    scrollbar-color: rgba(211, 211, 211, 0.582) transparent;
 }
 
-/* *::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 5px;
 }
 
@@ -16,10 +16,10 @@
 }
   
 *::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: rgba(211, 211, 211, 0.582);
     border-radius: 20px;
     border: 2px solid transparent;
-} */
+}
 
 body {
     color: #FFF;
