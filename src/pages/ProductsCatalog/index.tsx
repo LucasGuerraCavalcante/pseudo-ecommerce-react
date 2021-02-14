@@ -70,18 +70,37 @@ function ProductsCatalog() {
                 </header>
 
                 <div id="checkout-flex-structure">
-                    <div id="checkout-top">
+                    <div id="checkout-top" className={showCheckoutArea ? 'border-radius-top-corners' : 'border-radius-all-corners' }>
                         <h3 className="cart-text">Checkout</h3>
                         <div>
                             <a id="checkout-button" onClick={() => showCheckoutAreaFunction()} >
-                                <img
-                                    alt="Icone de Carrinho de Compras"
-                                    src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} 
-                                />
-                                <img
-                                    alt="Icone de Sera para Baixo"
-                                    src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} 
-                                />
+                                <div>
+                                    <span id="cart-notification" className={shoppingCart.length === 0 ? 'cart-notification-0' : 'cart-notification-maiorque-0' }>
+                                        {shoppingCart.length}
+                                    </span>
+                                    <img
+                                        alt="Icone de Carrinho de Compras"
+                                        src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} 
+                                    />
+                                </div>
+                                {
+                                    showCheckoutArea
+                                    ? (
+                                        <span 
+                                            id="x-icon"   
+                                        >
+                                            X
+                                        </span>
+
+                                    )
+                                    : (
+                                        <img
+                                            alt="Icone de Sera para Baixo"
+                                            src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} 
+                                        />
+                                    )
+                                }
+
                             </a>
                         </div>
                     </div>
@@ -94,6 +113,14 @@ function ProductsCatalog() {
                                         <p className="cart-text">Carrinho: </p>
                                         <ul>
                                             {
+                                                shoppingCart.length === 0 
+                                                ?
+                                                    ( 
+                                                        <p id="carrinho-vazio-text" >
+                                                            Adicione produtos ao carrinho
+                                                        </p>
+                                                    ) 
+                                                :
                                                 shoppingCart.map((product) => {
                                                     return (
                                                         <li key={product.shoppingCartId} >
