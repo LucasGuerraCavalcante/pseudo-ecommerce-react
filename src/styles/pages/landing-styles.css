@@ -87,11 +87,12 @@
     align-items: center;
     justify-content: center;
 
-    transition: background-color 0.2s;
+    transition: opacity 0.5s;
 }
 
-.content-wrapper .enter-app:hover {
-    background: #96FEFF;
+.content-wrapper .enter-app:hover,
+.content-wrapper .enter-app:focus {
+    opacity: .5;
 }
 
 .content-wrapper .logo-wrapper {
