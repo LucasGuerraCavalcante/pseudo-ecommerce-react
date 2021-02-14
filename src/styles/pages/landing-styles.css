@@ -122,3 +122,29 @@
         font-size: 15px;
     }
 }
+
+@media (max-width: 400px) {
+
+    #page-landing .content-wrapper main h1 {
+        font-size: 25px;
+        margin: 0;
+    }
+    
+    #page-landing .content-wrapper main p {
+        margin-top: 40px;
+        font-size: 24px;
+        line-height: 24px;
+        color: #f1fcff;
+    }
+
+    .content-wrapper .bem-vindo {
+        top: -140px;
+    
+        font-size: 20px;
+    }
+
+    .content-wrapper .bem-vindo span {
+        font-size: 15px;
+    }
+    
+}
