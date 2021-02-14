@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { MdAttachMoney } from 'react-icons/md';
 import { FaSortAlphaDown } from 'react-icons/fa';
@@ -22,8 +22,9 @@ interface Product {
 
 function ProductsCatalog() {
 
+    const dataArrayBySortType:Array<Product> = data;
+
     const [sortType, setSortType] = useState<string>('Nome');
-    const [dataArrayBySortType, setDataArrayBySortType] = useState<Array<Product>>(data);
 
     const [showSortType, setShowSortType] = useState<boolean>(true);
     const [sortTypeHover, setSortTypeHover] = useState<string>('');
@@ -73,8 +74,14 @@ function ProductsCatalog() {
                         <h3 className="cart-text">Checkout</h3>
                         <div>
                             <a id="checkout-button" onClick={() => showCheckoutAreaFunction()} >
-                                <img src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} />
-                                <img src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} />
+                                <img
+                                    alt="Icone de Carrinho de Compras"
+                                    src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} 
+                                />
+                                <img
+                                    alt="Icone de Sera para Baixo"
+                                    src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} 
+                                />
                             </a>
                         </div>
                     </div>
