@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { MdAttachMoney } from 'react-icons/md';
 import { FaSortAlphaDown } from 'react-icons/fa';
@@ -22,8 +22,9 @@ interface Product {
 
 function ProductsCatalog() {
 
+    const dataArrayBySortType:Array<Product> = data;
+
     const [sortType, setSortType] = useState<string>('Nome');
-    const [dataArrayBySortType, setDataArrayBySortType] = useState<Array<Product>>(data);
 
     const [showSortType, setShowSortType] = useState<boolean>(true);
     const [sortTypeHover, setSortTypeHover] = useState<string>('');
@@ -69,12 +70,37 @@ function ProductsCatalog() {
                 </header>
 
                 <div id="checkout-flex-structure">
-                    <div id="checkout-top">
+                    <div id="checkout-top" className={showCheckoutArea ? 'border-radius-top-corners' : 'border-radius-all-corners' }>
                         <h3 className="cart-text">Checkout</h3>
                         <div>
                             <a id="checkout-button" onClick={() => showCheckoutAreaFunction()} >
-                                <img src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} />
-                                <img src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} />
+                                <div>
+                                    <span id="cart-notification" className={shoppingCart.length === 0 ? 'cart-notification-0' : 'cart-notification-maiorque-0' }>
+                                        {shoppingCart.length}
+                                    </span>
+                                    <img
+                                        alt="Icone de Carrinho de Compras"
+                                        src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`} 
+                                    />
+                                </div>
+                                {
+                                    showCheckoutArea
+                                    ? (
+                                        <span 
+                                            id="x-icon"   
+                                        >
+                                            X
+                                        </span>
+
+                                    )
+                                    : (
+                                        <img
+                                            alt="Icone de Sera para Baixo"
+                                            src={`${process.env.PUBLIC_URL}/assets/arrow-down-icon.svg`} 
+                                        />
+                                    )
+                                }
+
                             </a>
                         </div>
                     </div>
@@ -87,6 +113,14 @@ function ProductsCatalog() {
                                         <p className="cart-text">Carrinho: </p>
                                         <ul>
                                             {
+                                                shoppingCart.length === 0 
+                                                ?
+                                                    ( 
+                                                        <p id="carrinho-vazio-text" >
+                                                            Adicione produtos ao carrinho
+                                                        </p>
+                                                    ) 
+                                                :
                                                 shoppingCart.map((product) => {
                                                     return (
                                                         <li key={product.shoppingCartId} >

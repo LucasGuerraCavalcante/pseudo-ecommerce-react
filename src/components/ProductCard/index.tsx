@@ -1,4 +1,3 @@
-import { randomBytes } from 'crypto';
 import React from 'react';
 
 import '../../styles/components/product.css';
@@ -57,7 +56,10 @@ function ProductCard(
 
     return (
         <div key={id} className="product">
-            <img src={`${process.env.PUBLIC_URL}/assets/${image}`} />
+            <img 
+                alt="Imagem do produto" 
+                src={`${process.env.PUBLIC_URL}/assets/${image}`}  
+            />
             <strong id="product-name">{name}</strong>
             <p id="product-prize">{price} R$</p>
             <div id="cart-opts">
@@ -71,7 +73,10 @@ function ProductCard(
                     })} 
                 >
                     <span id="add-span">
-                        <img src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`}></img>
+                        <img 
+                            alt="Icone Adicionar ao Carrinho" 
+                            src={`${process.env.PUBLIC_URL}/assets/cart-icon.svg`}
+                        />
                     </span>
                     Adicionar ao carrinho
                 </a>
