@@ -68,7 +68,7 @@ function ProductsCatalog() {
             <h3 id="sort-type-title">Ordenar por: {showSortType ? sortType : sortTypeHover } </h3>
             <div id="products-wrapper">
                 {
-
+                    // Renderizar produtos organizados por preco
                     sortType === "Preço" 
                         ? 
                         dataArrayBySortType.sort((a, b) => (a.price > b.price) ? 1 : -1).map((product) => {
@@ -91,8 +91,8 @@ function ProductsCatalog() {
                             );
                         })
                         :
+                            // Renderizar produtos organizados por popularidade
                             sortType === "Popularidade" 
-
                             ?
                             dataArrayBySortType.sort((a, b) => (a.score < b.score) ? 1 : -1).map((product) => {
                                 return (
@@ -114,6 +114,7 @@ function ProductsCatalog() {
                                 );
                             })
                             :
+                            // Renderizar produtos organizados por ordem alfabetica
                             dataArrayBySortType.sort(function(a, b) {
                                 var textA = a.name.toUpperCase();
                                 var textB = b.name.toUpperCase();

@@ -36,10 +36,12 @@ function CheckoutCard({
         setShowCheckoutArea,
     }:CheckoutCardProps) {
 
+    // Mostra / Esconde a area de checkout
     const showCheckoutAreaFunction = function() {
         setShowCheckoutArea(!showCheckoutArea)
     }
 
+    // Deleta item do carrinho
     const deleteShoppingCartProductByID = function(productToBeDeleted: Product) {
         if (productToBeDeleted.shoppingCartId) {
             setShoppingCart(shoppingCart.filter((product) => {return product.shoppingCartId !== productToBeDeleted.shoppingCartId } ))
@@ -65,6 +67,7 @@ function CheckoutCard({
                                 />
                             </div>
                             {
+                                // Icode do botao de abrir / fechar a area de checkout
                                 showCheckoutArea
                                 ? (
                                     <span 
@@ -94,6 +97,7 @@ function CheckoutCard({
                                     <p className="cart-text">Carrinho: </p>
                                     <ul>
                                         {
+                                            // Check de carrinho vazio
                                             shoppingCart.length === 0 
                                             ?
                                                 ( 
@@ -127,6 +131,7 @@ function CheckoutCard({
                                         <div className="value-wrapper">
                                             <span>Frete: </span>
                                             {
+                                                // Checagem do valor do frete
                                                 subtotal > 250
                                                     ? ( <p>Grátis!!!</p> ) 
                                                     : ( <p>{Math.abs(frete).toFixed(2)} R$</p> )
@@ -140,6 +145,7 @@ function CheckoutCard({
                                     <div id="value-wrapper-total">
                                         <span>Total: </span>
                                         {
+                                            // Checagem do valor do frete
                                             subtotal > 250
                                                 ? ( <p className="cart-text">{Math.abs(subtotal).toFixed(2)} R$</p> ) 
                                                 : ( <p className="cart-text">{Math.abs(subtotal + frete).toFixed(2)} R$</p> )

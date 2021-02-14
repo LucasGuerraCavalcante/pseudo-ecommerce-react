@@ -18,10 +18,12 @@ function ButtonsWrapper({
         setSortTypeHover
     }:ButtonsWrapperProps) {
 
+    // Troca o estado de sorting definitivamente
     const changeDefintiveSortType = function(sortTypeName: string) {
         setSortType(sortTypeName)
     }
 
+    // Troca apenas o texto que sera renderizado na tela, nao interfere o estado definitivo
     const changeSortTypeHover = function(sortTypeName: string) {
         setShowSortType(false)
         setSortTypeHover(sortTypeName)

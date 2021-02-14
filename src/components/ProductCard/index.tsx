@@ -39,8 +39,10 @@ function ProductCard(
         setSubtotal
     }:ProductCardProps) {
 
+    // Adcionar novo produto ao carrinho
     const addProductToTheShoppingCart = function(newProduct:Product) {
 
+        // Id aleatorio para o produto no carrinho
         const randomShoppingCartId = `${Math.floor((Math.random() * 100) + 1)}${Math.floor((Math.random() * 1000) + 1)}${Math.floor((Math.random() * 10000) + 1)}`;
 
         newProduct = {
@@ -50,6 +52,7 @@ function ProductCard(
 
         setShoppingCart([...shoppingCart, newProduct]);
 
+        // Calculos dos valores
         setSubtotal(subtotal + newProduct.price);
         setFrete(frete + 10);  
     }

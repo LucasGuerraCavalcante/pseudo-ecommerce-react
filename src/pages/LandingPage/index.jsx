@@ -8,11 +8,6 @@ function LandingPage() {
     return (
         <div id="page-landing">
             <div className="content-wrapper">
-                {/* <div className="logo-wrapper">
-                    <img src={marker} alt="" />
-                    <img src={logoImg} alt="" />
-                </div> */}
-        
                 <main>
                     <h1>E-Commerce de Games</h1>
                     <p>Os melhores preços estão aqui!</p>
