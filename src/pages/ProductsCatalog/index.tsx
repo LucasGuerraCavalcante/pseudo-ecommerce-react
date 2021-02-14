@@ -148,20 +148,20 @@ function ProductsCatalog() {
                                                 {
                                                     subtotal > 250
                                                         ? ( <p>Grátis!!!</p> ) 
-                                                        : ( <p>{frete.toFixed(2)} R$</p> )
+                                                        : ( <p>{Math.abs(frete).toFixed(2)} R$</p> )
                                                 }                                            
                                             </div>
                                             <div className="value-wrapper" id="value-wrapper-subtotal">
                                                 <span>Subtotal:</span>
-                                                <p>{subtotal.toFixed(2)} R$</p>
+                                                <p>{Math.abs(subtotal).toFixed(2)} R$</p>
                                             </div>
                                         </div>
                                         <div id="value-wrapper-total">
                                             <span>Total: </span>
                                             {
                                                 subtotal > 250
-                                                    ? ( <p className="cart-text">{subtotal.toFixed(2)} R$</p> ) 
-                                                    : ( <p className="cart-text">{(subtotal + frete).toFixed(2)} R$</p> )
+                                                    ? ( <p className="cart-text">{Math.abs(subtotal).toFixed(2)} R$</p> ) 
+                                                    : ( <p className="cart-text">{Math.abs(subtotal + frete).toFixed(2)} R$</p> )
                                             }
                                         </div>
                                         <a>Comprar</a>
