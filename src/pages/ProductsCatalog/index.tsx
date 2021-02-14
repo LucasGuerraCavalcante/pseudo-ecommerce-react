@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { MdAttachMoney } from 'react-icons/md';
 import { FaSortAlphaDown } from 'react-icons/fa';
@@ -21,6 +21,7 @@ interface Product {
 function ProductsCatalog() {
 
     const [sortType, setSortType] = useState<string>('Nome');
+    const [dataArrayBySortType, setDataArrayBySortType] = useState<Array<Product>>(data);
 
     const [showSortType, setShowSortType] = useState<boolean>(true);
     const [sortTypeHover, setSortTypeHover] = useState<string>('');
@@ -54,7 +55,7 @@ function ProductsCatalog() {
             <aside>
                 <header>
                     <h2>Navege pelo nosso catálogo!</h2>
-                    <p>E adicione os produtos ao seu carrinho</p>
+                    <p>Frete grátis para compras acima de 250,00 R$</p>
                 </header>
 
                 <div id="checkout-flex-structure">
@@ -164,10 +165,13 @@ function ProductsCatalog() {
             </div>
 
             <div id="products-container">
-                <h3 id="sort-type-title">Ordenar por: {showSortType ? sortType : sortTypeHover } </h3>
-                <div id="products-wrapper">
-                    {
-                        data.map((product) => {
+            <h3 id="sort-type-title">Ordenar por: {showSortType ? sortType : sortTypeHover } </h3>
+            <div id="products-wrapper">
+                {
+
+                    sortType === "Preço" 
+                        ? 
+                        dataArrayBySortType.sort((a, b) => (a.price > b.price) ? 1 : -1).map((product) => {
                             return (
                                 <ProductCard 
                                     id={product.id}
@@ -175,23 +179,67 @@ function ProductsCatalog() {
                                     price={product.price}
                                     score={product.score}
                                     image={product.image}
-
+    
                                     shoppingCart={shoppingCart}
                                     setShoppingCart={setShoppingCart}
-
+    
                                     frete={frete}
                                     subtotal={subtotal}
                                     setFrete={setFrete}
                                     setSubtotal={setSubtotal}
-
-                                    // addProductToTheShoppingCart={addProductToTheShoppingCart}
                                 />
                             );
                         })
-                    }
-                </div>
+                        :
+                            sortType === "Popularidade" 
 
+                            ?
+                            dataArrayBySortType.sort((a, b) => (a.score < b.score) ? 1 : -1).map((product) => {
+                                return (
+                                    <ProductCard 
+                                        id={product.id}
+                                        name={product.name}
+                                        price={product.price}
+                                        score={product.score}
+                                        image={product.image}
+        
+                                        shoppingCart={shoppingCart}
+                                        setShoppingCart={setShoppingCart}
+        
+                                        frete={frete}
+                                        subtotal={subtotal}
+                                        setFrete={setFrete}
+                                        setSubtotal={setSubtotal}
+                                    />
+                                );
+                            })
+                            :
+                            dataArrayBySortType.sort(function(a, b) {
+                                var textA = a.name.toUpperCase();
+                                var textB = b.name.toUpperCase();
+                                return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                            }).map((product) => {
+                                return (
+                                    <ProductCard 
+                                        id={product.id}
+                                        name={product.name}
+                                        price={product.price}
+                                        score={product.score}
+                                        image={product.image}
+        
+                                        shoppingCart={shoppingCart}
+                                        setShoppingCart={setShoppingCart}
+        
+                                        frete={frete}
+                                        subtotal={subtotal}
+                                        setFrete={setFrete}
+                                        setSubtotal={setSubtotal}
+                                    />
+                                );
+                            })
+                }
             </div>
+        </div>
         </div>
     );
 }
