@@ -16,6 +16,8 @@ interface Product {
     price: number;
     score: number;
     image: string;
+
+    shoppingCartId?: string;
 }
 
 function ProductsCatalog() {
@@ -50,6 +52,14 @@ function ProductsCatalog() {
         setShowCheckoutArea(!showCheckoutArea)
     }
 
+    const deleteShoppingCartProductByID = function(productToBeDeleted: Product) {
+        if (productToBeDeleted.shoppingCartId) {
+            setShoppingCart(shoppingCart.filter((product) => {return product.shoppingCartId !== productToBeDeleted.shoppingCartId } ))
+            setSubtotal(subtotal - productToBeDeleted.price)
+            setFrete(frete - 10)
+        }
+    }
+
     return (
         <div id="products-catalog">
             <aside>
@@ -79,8 +89,11 @@ function ProductsCatalog() {
                                             {
                                                 shoppingCart.map((product) => {
                                                     return (
-                                                        <li>
-                                                            <div id="product-li">
+                                                        <li key={product.shoppingCartId} >
+                                                            <div 
+                                                                id="product-li"
+                                                                onClick={() => deleteShoppingCartProductByID(product)}
+                                                            >
                                                                 <span>
                                                                     {product.name}
                                                                 </span>

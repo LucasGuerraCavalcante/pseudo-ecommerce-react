@@ -1,3 +1,4 @@
+import { randomBytes } from 'crypto';
 import React from 'react';
 
 import '../../styles/components/product.css';
@@ -8,6 +9,8 @@ interface Product {
     price: number;
     score: number;
     image: string;
+
+    shoppingCartId?: string;
 }
 
 interface ProductCardProps {
@@ -38,6 +41,14 @@ function ProductCard(
     }:ProductCardProps) {
 
     const addProductToTheShoppingCart = function(newProduct:Product) {
+
+        const randomShoppingCartId = `${Math.floor((Math.random() * 100) + 1)}${Math.floor((Math.random() * 1000) + 1)}${Math.floor((Math.random() * 10000) + 1)}`;
+
+        newProduct = {
+            ...newProduct, 
+            shoppingCartId: randomShoppingCartId
+        }
+
         setShoppingCart([...shoppingCart, newProduct]);
 
         setSubtotal(subtotal + newProduct.price);
