@@ -1,17 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { BiCart } from 'react-icons/bi';
+import React from 'react';
 
 import '../../styles/components/product.css';
-
-// import imageTest from '../../assets/mortal-kombat-xl.png';
-
-// interface Product {
-//     id: number;
-//     name: string;
-//     price: number;
-//     score: number;
-//     image: string;
-// }
 
 interface Product {
     id: number;
@@ -39,7 +28,7 @@ interface ProductCardProps {
 }
 
 function ProductCard(
-    {id, name, price, score, image, 
+    {   id, name, price, score, image, 
         shoppingCart, 
         setShoppingCart,
         frete,
