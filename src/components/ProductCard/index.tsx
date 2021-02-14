@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../styles/components/product.css';
+import '../../styles/components/productcard-styles.css';
 
 interface Product {
     id: number;

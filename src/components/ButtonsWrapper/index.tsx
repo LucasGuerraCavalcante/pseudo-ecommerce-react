@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { MdAttachMoney } from 'react-icons/md';
 import { FaSortAlphaDown } from 'react-icons/fa';

@@ -9,7 +9,7 @@ function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={LandingPage} /> 
-                <Route path="/app" component={ProductsCatalog} />    
+                <Route path="/catalog" component={ProductsCatalog} />    
             </Switch>
         </BrowserRouter>
     );

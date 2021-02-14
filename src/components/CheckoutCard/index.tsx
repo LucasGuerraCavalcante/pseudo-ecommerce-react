@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import '../../styles/pages/catalog-styles.css';
+import '../../styles/components/checkoutcard-styles.css';
 
 interface Product {
     id: number;
