@@ -109,3 +109,41 @@
 #products-catalog .sort-button:hover {
     background: #88abc7;
 }
+
+/* -------------------------------------- */
+/* ----------- Mobile Version ----------- */
+/* -------------------------------------- */
+
+@media (max-width: 1043px) {
+    #products-catalog {
+        flex-direction: column;
+    }
+
+    #buttons-wrapper {
+        display: flex;
+    }
+
+    #products-catalog aside {
+        min-width: 100vw;
+        overflow-y: visible;
+    
+        justify-content: space-between;
+
+        padding: 0 50px 2rem 50px;
+    }
+
+    #products-catalog aside footer {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #products-wrapper {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-direction: column;
+    }
+}
