@@ -8,7 +8,7 @@ Challenge for job vacancy. The challenge is to build a pseudo game e-commerce in
 
 ## Deploy
 
-https://pseudo-ecommerce-react.vercel.app/app
+https://pseudo-ecommerce-react.vercel.app/
 
 ## Run Local
 
